@@ -1,7 +1,8 @@
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import js from "@eslint/js";
 import json from "@eslint/json";
 import pretty from "eslint-plugin-prettier/recommended";
+import cspell from "@cspell/eslint-plugin/recommended";
 
 export default defineConfig([
   {
@@ -27,4 +28,14 @@ export default defineConfig([
       ],
     },
   },
+  cspell,
+  globalIgnores([
+    // Outputs
+    "**/node_modules",
+
+    // Generated
+    "**/.yarn",
+    "**/*.husky",
+    "**/cspell.json",
+  ]),
 ]);
