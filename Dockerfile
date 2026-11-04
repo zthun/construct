@@ -1,7 +1,7 @@
-FROM node:lts as setup
+FROM node:lts AS setup
 WORKDIR /usr/dev
 COPY . .
-RUN yarn install
+RUN npm i -g corepack && corepack enable && yarn install
 
-FROM build as analyze
+FROM setup AS analyze
 RUN yarn lint
