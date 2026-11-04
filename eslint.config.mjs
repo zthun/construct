@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import js from "@eslint/js";
 import json from "@eslint/json";
+import markdown from "@eslint/markdown";
 import pretty from "eslint-plugin-prettier/recommended";
 import cspell from "@cspell/eslint-plugin/recommended";
 
@@ -13,6 +14,15 @@ export default defineConfig([
     ...json.configs.recommended,
     files: ["**/*.json"],
     language: "json/json",
+  },
+  {
+    files: ["**/*.md"],
+    plugins: { markdown },
+    extends: ["markdown/recommended"],
+    language: "markdown/gfm",
+    languageOptions: {
+      frontmatter: "yaml",
+    },
   },
   pretty,
   {
