@@ -1,4 +1,29 @@
 {
+  "eslint.validate": [
+    "astro",
+    "civet",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "mdx",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc",
+    "css",
+    "glimmer-js",
+    "glimmer-ts",
+    "svelte",
+    "graphql",
+    "skill"
+  ],
+  "eslint.format.enable": true,
+  "[markdown][skill]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   }

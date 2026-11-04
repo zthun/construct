@@ -1,8 +1,8 @@
 ---
 name: feature-documentation
 description: >
-  Create and maintain README.md documentation for
-  individual features in monorepos
+  Create and maintain README.md documentation for individual features in
+  monorepos
 license: Unlicense
 ---
 
