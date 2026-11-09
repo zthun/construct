@@ -1,4 +1,4 @@
-# Vite config method
+# Janitor Vite Config Method
 
 ## Purpose
 
