@@ -42,13 +42,10 @@ else fails, use your best judgement.
 1.  Identify your packages and make sure you are identifying a package. If
     something is not a package, then the package type is considered undefined.
 1.  Try identifying a package using the
-    [vite config](./references/vite-config-method.md). This will be the most
-    definitive method if you can identify this way.
+    [janitor vite config](./references/janitor-vite-config-method.md). This will
+    be the most accurate method.
 1.  If the package does not use vite or cannot be identified by the vite
     configuration, try the [package.json](./references/package-json-method.md)
-1.  If you still cannot identify the package type from package json or vite, try
-    looking at the README.md to see if there is any mention of what the actual
-    expected package type is.
 1.  If the readme method fails, finally try the
     [source code method](./references/source-code-method.md).
 1.  If all methods fail, report the package as Unknown. Notify the developer of
