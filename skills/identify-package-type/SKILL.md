@@ -44,9 +44,6 @@ else fails, use your best judgement.
 1.  Try identifying a package using the
     [janitor vite config](./references/janitor-vite-config-method.md). This will
     be the most accurate method.
-1.  If the package does not use vite or cannot be identified by the vite
-    configuration, try the [package.json](./references/package-json-method.md)
-1.  If the readme method fails, finally try the
-    [source code method](./references/source-code-method.md).
-1.  If all methods fail, report the package as Unknown. Notify the developer of
-    the evidence why.
+1.  If the janitor vite config method is Unknown, try the
+    [package.json](./references/package-json-method.md) method.
+1.  Consider the package Unknown if no methods work.
