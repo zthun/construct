@@ -47,3 +47,5 @@ else fails, use your best judgement.
 1.  If the janitor vite config method is Unknown, try the
     [package.json](./references/package-json-method.md) method.
 1.  Consider the package Unknown if no methods work.
+1.  Asking for a package type should simply output the type. Only report
+    evidence if specifically requested or if a follow up asks for it.
