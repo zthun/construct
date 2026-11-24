@@ -24,9 +24,9 @@ documentation so developers understand the intent and behavior of the code.
 1. Identify all packages in the repository
 1. For each package, do the following:
    - [Update typedoc for source code](./references/update-typedoc/update-typedoc.md).
-   - [Update the package readme](./references/update-package-readme.md)
+   - [Update the package readme](./references/update-package-readme/update-package-readme.md)
      describing how the package is meant to be consumed. How to update depends
      on the package type.
-   - [Update the feature readmes](./references/update-feature-readme.md). Not
+   - [Update the feature readmes](./references/update-feature-readme/update-feature-readme.md). Not
      all packages are eligible for this.
-1. [Update the readme for the repository](./references/update-repository-readme.md).
+1. [Update the readme for the repository](./references/update-repository-readme/update-repository-readme.md).
