@@ -1,26 +1,20 @@
-# Update Package Readme
+# Update Package README
 
 ## Purpose
 
-The package readme describes the package itself and should be considered an
-entry point where a user can see the package on npmjs.com or any other package
-management database.
+The package README introduces the package to people browsing the source
+repository or a package registry such as npm.
 
 ## Instructions
 
 1. Identify the package type.
-1. Update the readme depending on the type of package.
+1. Update the README for that package type.
 
 ### Library
 
-A library, universal, browser, or node will all be documented in the same way
+For universal, browser, and Node.js libraries, describe the following in the
+package README.
 
-The root readme should describe the following:
-
-1. The purpose of the package and the reason it exists.
-1. How to install the package
-1. A small sample of how to use the package. This can just be for marketing
-   reasons and does not have to be fully comprehensive. It should just be the
-   benefit you get from using this package. Think of this like a before and
-   after situation - using this packages makes your "after" look and feel much
-   better than your "before."
+1. What the library does and when to use it.
+1. How to install it.
+1. One short example that uses the public API to solve a representative problem.
