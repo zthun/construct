@@ -1,3 +1,3 @@
-# Update Typedoc Functions
+# Document Functions
 
 TODO

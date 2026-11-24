@@ -1,86 +1,65 @@
-# Update Typedoc Interfaces
+# Document Interfaces
 
-Interfaces represent object shape documentation, so they should be documented
-accordingly. You only have to document interfaces that are exported from a
-module. Local module only interfaces can have documentation, but do not need any
-modifications unless specifically asked for.
-
-## Instructions
-
-1.  Add or update typedoc to the interface itself.
-1.  Add or update typedoc to all fields in the interface.
-1.  Add or update typedoc to all methods in the interface.
+Summarize each exported interface and document its properties and methods.
+Explain what each member represents or how callers use it. Update comments on
+interfaces that are private to a module when requested. Private, scoped
+interfaces not exported do not require documentation, but feel free to fix any
+spelling or grammar errors.
 
 ## Example
 
 ```ts
 /**
- * Options for reading from a stream.
+ * Options for reading from or writing to a stream.
  */
 export interface IStreamOptions {
   /**
    * The total number of bytes to attempt to read or write.
    *
-   * If this is falsy, then everything will be read or written
-   * until the stream ends.
+   * If omitted or zero, the operation continues until the stream ends.
    */
   length?: number;
 }
 
 /**
- * Represents something that can operate on a flow of binary data.
- *
- * Streams are used to read and write blocks of binary data from
- * and to something, respectively. This can include files, sockets,
- * and raw text.
+ * A stream of binary data from a source such as a file or socket.
  */
 export interface IStream {
   /**
-   * Opens the stream for it's intended purpose.
+   * Opens the stream.
    *
-   * This can lock the stream from any other application
-   * from using it depending on permissions.  Files, for example,
-   * would not be able to be deleted or overwritten while
-   * the stream is open.
-   *
-   * @throws
-   *        An error if the stream refuses to open.  This can happen
-   *        if the target stream is already locked by another process
-   *        or user.
+   * The promise rejects if the underlying resource cannot be opened,
+   * for example, when another process holds an exclusive lock.
    */
   open(): Promise<void>;
 
   /**
    * Closes the stream.
    *
-   * Once closed, you will need to reopen the stream again
-   * for access to it's contents.
-   **/
+   * Reopen the stream before accessing its contents.
+   */
   close(): Promise<void>;
 }
 
 /**
- * An object that can be used to read bytes from a stream.
+ * A stream that can read bytes.
  */
 export interface IReadStream extends IStream {
   /**
    * Reads from the stream.
    *
    * @param options -
-   *        The reading options.  See {@link IStreamOptions}
+   *        The reading options. See {@link IStreamOptions}
    *        for more information.
    *
    * @returns
-   *        A promise that resolves to the byte array read.
-   *
-   * @throws
-   *        If the stream cannot be opened and read from.
+   *        A promise that resolves to the bytes read or rejects if reading fails.
    */
-  read(options?: IStreamOptions): Promise<UInt8Array>;
+  read(options?: IStreamOptions): Promise<Uint8Array>;
 }
 
 /**
- * An object that can be used to write bytes to stream.
+ * A stream that can write bytes.
  */
 export interface IWriteStream extends IStream {
   /**
@@ -89,14 +68,13 @@ export interface IWriteStream extends IStream {
    * @param content -
    *        The binary data to write.
    * @param options -
-   *        The writing options.  See {@link IStreamOptions}
+   *        The writing options. See {@link IStreamOptions}
    *        for more information.
    *
    * @returns
-   *        The total number of bytes written to the stream
-   *        from the content.
+   *        A promise that resolves to the number of bytes written.
    */
-  write(content: UInt8Array, options?: IStreamOptions): Promise<number>;
+  write(content: Uint8Array, options?: IStreamOptions): Promise<number>;
 
   /**
    * Flushes any pending writes.

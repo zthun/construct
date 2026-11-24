@@ -1,68 +1,48 @@
-# Types
+# Document Type Aliases
 
-Types should behave like interfaces if they represent object shapes in any form.
-If the type is an alias, simply say the underlying type, and if the type is a
-union of flat values, just summarize it the best you can.
-
-## Instructions
-
-1.  Add or update typedoc to the type itself.
-1.  Add or update typedoc to all fields in the type that are part of an object shape.
-1.  Add or update typedoc to all methods in the type that are part of an object shape.
+Summarize what the type alias represents. For an object shape, document its
+properties and methods as you would for an interface. For a union, explain what
+the variants mean when their names or values need context.
 
 ## Example
 
 ```ts
 /**
- * Options for reading from a stream.
+ * Options for reading from or writing to a stream.
  */
 export type IStreamOptions = {
   /**
    * The total number of bytes to attempt to read or write.
    *
-   * If this is falsy, then everything will be read or written
-   * until the stream ends.
+   * If omitted or zero, the operation continues until the stream ends.
    */
   length?: number;
 };
 
 /**
- * Represents something that can operate on a flow of binary data.
- *
- * Streams are used to read and write blocks of binary data from
- * and to something, respectively. This can include files, sockets,
- * and raw text.
+ * A stream of binary data from a source such as a file or socket.
  */
 export type IStream = {
   /**
-   * Opens the stream for it's intended purpose.
+   * Opens the stream.
    *
-   * This can lock the stream from any other application
-   * from using it depending on permissions.  Files, for example,
-   * would not be able to be deleted or overwritten while
-   * the stream is open.
-   *
-   * @throws
-   *        An error if the stream refuses to open.  This can happen
-   *        if the target stream is already locked by another process
-   *        or user.
+   * The promise rejects if the underlying resource cannot be opened,
+   * for example, when another process holds an exclusive lock.
    */
   open(): Promise<void>;
 
   /**
    * Closes the stream.
    *
-   * Once closed, you will need to reopen the stream again
-   * for access to it's contents.
-   **/
+   * Reopen the stream before accessing its contents.
+   */
   close(): Promise<void>;
 };
 
 /**
- * Represents something that can become a Date object.
+ * A value that can be converted to a Date.
  *
- * If this is a time descriptor, then assume the timezone
- * is UTC.
+ * Date and time components use UTC.
  */
 export type DateLike =
   | number
@@ -70,48 +50,45 @@ export type DateLike =
   | Date
   | {
       /**
-       * The month index (0-11)
+       * The zero-based month index, from 0 (January) to 11 (December).
        *
-       * January = 0.
-       * December = 11.
-       *
-       * @default 0
+       * Defaults to 0.
        */
       month?: number;
       /**
-       * The day of the month (1-31).
+       * The day of the month (1–31).
        *
-       * @default 1
+       * Defaults to 1.
        */
       day?: number;
       /**
        * The year.
        *
-       * @default 0
+       * Defaults to 0.
        */
       year?: number;
       /**
-       * Hour in 24 hour format (0-23)
+       * The hour in 24-hour format (0–23).
        *
-       * @default 0.
+       * Defaults to 0.
        */
       hour?: number;
       /**
-       * The minute (0-59)
+       * The minute (0–59).
        *
-       * @default 0.
+       * Defaults to 0.
        */
       minute?: number;
       /**
-       * The second (0-59)
+       * The second (0–59).
        *
-       * @default 0.
+       * Defaults to 0.
        */
       second?: number;
     };
 
 /**
- * Represents something that can represent money.
+ * A monetary amount expressed as text or a number.
  */
 export type MoneyLike = string | number;
 ```

@@ -1,27 +1,23 @@
-# Update Typedoc Enums
+# Document Enums
 
-Enums are similar to global variables; they are just housed in a object
-structure. You can simply give a quick summary or document the actual value.
-
-## Instructions
-
-1. Document a summary of the enum if one does not already exist.
+Summarize what the enum represents. Document individual members when their
+meaning or behavior needs explanation.
 
 ## Example
 
 ```ts
 /**
- * Specifies the 2d orientation of a structure.
+ * Specifies an orientation in two dimensions.
  */
-export enum ZOrientation {
+export enum Orientation {
   /**
-   * Horizontal, x-axis, left-to-right, right-to-left.
+   * Parallel to the x-axis.
    */
-  Horizontal = 'horizontal',
+  Horizontal = "horizontal",
 
   /**
-   * Vertical, y-axis, top-to-bottom, bottom-to-top
+   * Parallel to the y-axis.
    */
-  Vertical = 'vertical'
+  Vertical = "vertical",
 }
 ```

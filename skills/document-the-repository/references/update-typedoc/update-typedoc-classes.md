@@ -1,3 +1,3 @@
-# Update Typedoc Classes
+# Document Classes
 
 TODO
