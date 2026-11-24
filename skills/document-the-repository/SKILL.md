@@ -1,12 +1,12 @@
 ---
 name: document-the-repository
 description: >
-  Create and maintain README.md documentation for repositories, packages, and
-  features. Also create and maintain TSDoc documentation for source code.
+  Create and maintain README.md files for JavaScript and TypeScript
+  repositories, packages, and features, or update TSDoc comments in source code.
 license: Unlicense
 ---
 
-# Document The Repository
+# Document the Repository
 
 ## Dependencies
 
@@ -15,18 +15,16 @@ license: Unlicense
 
 ## Purpose
 
-Create and maintain documentation for repositories, packages, and features so
-consumers understand how to use what we build. Maintain source-level
-documentation so developers understand the intent and behavior of the code.
+Help readers understand what the repository contains, how to use its packages
+and features, and how its source APIs behave.
 
 ## Instructions
 
-1. Identify all packages in the repository
-1. For each package, do the following:
-   - [Update typedoc for source code](./references/update-typedoc/update-typedoc.md).
-   - [Update the package readme](./references/update-package-readme/update-package-readme.md)
-     describing how the package is meant to be consumed. How to update depends
-     on the package type.
-   - [Update the feature readmes](./references/update-feature-readme/update-feature-readme.md). Not
-     all packages are eligible for this.
-1. [Update the readme for the repository](./references/update-repository-readme/update-repository-readme.md).
+For a repository-wide update, identify the packages in the repository and use
+the guides below. For a targeted request, use the guides that apply to the
+requested documentation.
+
+- [Update TSDoc comments](./references/update-typedoc/update-typedoc.md)
+- [Update each package README](./references/update-package-readme/update-package-readme.md)
+- [Update feature READMEs](./references/update-feature-readme/update-feature-readme.md)
+- [Update the repository README](./references/update-repository-readme/update-repository-readme.md)
