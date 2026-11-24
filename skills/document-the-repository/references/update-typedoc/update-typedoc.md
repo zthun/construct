@@ -1,71 +1,55 @@
-# Update The Typedoc
+# Update TSDoc Comments
 
-The typedoc for the source is the official documentation for using a variable,
-class, method, or interface.
+TSDoc comments describe how to use source declarations and provide documentation
+in editors through features such as IntelliSense.
 
-By reading a codes typedoc, a developer should have a basic understanding of how
-the source code works. The real value, however, is being able to use
-intellisense to read the documentation while you are coding with it.
+## Comment Format
 
-## Anatomy
+Start with a summary. Add a separate paragraph when callers need more context.
+Use `@param` for parameters, `@returns` when the return value needs explanation,
+and `@throws` for errors callers can reasonably handle. For a function that
+returns a promise, describe when the promise rejects. Use `@example` when a
+short example helps explain how to call the API.
 
-The following is the format we want the typedoc to take. While there are lots of
-valid ways to write typedoc, this format is the ideal.
-
-```ts
+````ts
 /**
- * The first line is the summary.
+ * Returns the number of bytes in the given number of kibibytes.
  *
- * The description and any further, extended documentation is followed
- * by an empty newline and further describes the method.  This is optional
- * and should only be here if further information about the method is needed.
+ * @param kibibytes -
+ *        The number of kibibytes to convert.
  *
- * The description can be as many paragraphs and sentences as needed.
- *
- * @param x -
- *        Describes a basic parameter.  Best format is to have a new line after
- *        the - and line up the text with the first character of the parameter
- *        name. This is true for generics in TypeScript as well.
+ * @returns
+ *        The equivalent number of bytes.
  *
  * @throws
- *        What causes the method to throw an error if anything.  Describe the type
- *        of each error and how it gets thrown.  You do not need to document
- *        "always possible to throw errors" like out of memory that are out of control
- *        for the executing application.  Just things that would be thrown as a result
- *        of specific inputs.  This section is optional and if the method does not throw,
- *        then leave this out.
+ *        A RangeError if kibibytes is negative or is not finite.
  *
  * @example
  *
  * ```ts
- * // Provide an example of how the method works. For big things like classes that do a lot
- * // you can omit these and just have them on the methods and constructors.  Use only
- * // where applicable.
+ * kibibytesToBytes(2); // 2048
  * ```
- * 
- * @returns
- *        The description of the value that a function, class method, or interface method
- *        returns.  This should include explanations of different pathways and values that
- *        the callable returns.
- *        
  */
-export function doMagic() {}
-```
+export function kibibytesToBytes(kibibytes: number): number {
+  if (!Number.isFinite(kibibytes) || kibibytes < 0) {
+    throw new RangeError("Expected a finite, nonnegative number");
+  }
 
-## Instructions
+  return kibibytes * 1024;
+}
+````
 
-1.  Add or update typedoc for:
-    1. [Global Variables](./update-typedoc-global-variables.md)
-    1. [Enums](./update-typedoc-enums.md)
-    1. [Interfaces](./update-typedoc-interfaces.md)
-    1. [Types](./update-typedoc-types.md)
-    1. [Functions](./update-typedoc-functions.md)
-    1. [Classes](./update-typedoc-classes.md)
+## Declaration Guides
 
-## Rules
+- [Exported variables](./update-typedoc-global-variables.md)
+- [Enums](./update-typedoc-enums.md)
+- [Interfaces](./update-typedoc-interfaces.md)
+- [Type aliases](./update-typedoc-types.md)
+- [Functions](./update-typedoc-functions.md)
+- [Classes](./update-typedoc-classes.md)
 
-- Do not remove any typedoc blocks of /** and */ that exist. Only update what
-  is between the comment block and add new ones that do not exist.
-- Updates only need to happen if the assumption changes for how the element is
-  to be used, spelling and grammar mistakes, and better formatting. You do not
-  need to rewrite documentation that is accurate.
+## Editing Existing Comments
+
+Preserve existing documentation blocks. Update their content when behavior
+changes or when the wording, spelling, grammar, or formatting needs correction.
+Add missing comments where the relevant declaration guide calls for them.
