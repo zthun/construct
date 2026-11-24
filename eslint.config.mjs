@@ -4,11 +4,16 @@ import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import pretty from "eslint-plugin-prettier/recommended";
 import cspell from "@cspell/eslint-plugin/recommended";
+import tslint from "typescript-eslint";
 
 export default defineConfig([
   {
     ...js.configs.recommended,
-    files: ["**/*.js", "**/*.mjs"],
+    files: ["**/*.js", "**/*.mjs", "**/*.jsx"],
+  },
+  {
+    ...tslint.recommended,
+    files: ["**/*.ts", "**/*.mts", "**/*.tsx"],
   },
   {
     ...json.configs.recommended,
