@@ -52,5 +52,6 @@ export default defineConfig([
     "**/.yarn",
     "**/*.husky",
     "**/cspell.json",
+    "**/.agents",
   ]),
 ]);
