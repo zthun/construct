@@ -21,8 +21,9 @@ returns a promise, describe when the promise rejects. Use `@example` when a
 short example helps explain how to call the API.
 
 For @param, @returns, @throws, and any other tag that has a description, use a
-newline and make sure all of the descriptive texts lines up on the left. This is
-important for basic readability while actually working with the code.
+newline and make sure all of the descriptive texts lines up on the left. Use 8
+spaces from the * comment character. This is important for basic readability
+while actually working with the code.
 
 ````ts
 /**
