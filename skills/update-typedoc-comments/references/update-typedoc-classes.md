@@ -1,80 +1,74 @@
 # Document Classes
 
-Provide a summary of the class and what's it's primarily for. You can describe
-things like it's domain, scope, or actor. Provide additional descriptions where
-necessary. Only do this for classes that are exported from a module.
+For each class exported from a module, summarize its main responsibility. Add
+details about its lifecycle or usage when callers need them.
 
-Constructors should always have the same summary of "Initializes a new instance
-of this object." Parameter documentation should follow the standard format
-similar to basic JavaScript functions.
+Document each declared constructor, including constructors in abstract classes.
+Use “Initializes a new instance of this object.” as the summary and explain what
+each parameter controls.
 
-Document all public and protected fields. This should be similar to documenting
-enums.
+Document public and protected fields and methods. For fields, explain what the
+value represents and when it changes. For methods, follow the
+[function guide](./update-typedoc-functions.md) for parameters, results, and
+errors. Preserve existing comments on private members.
 
-Document all public and protected methods. This should be similar to documenting
-functions.
-
-You do not need to provide documentation for private methods; just leave any
-documentation that already exists. You also do not need to document any methods
-or fields that are inherited from implemented interfaces or overridden from
-abstract classes. Let the automatic @inheritdoc handle that. Only fields and
-methods that the class provides needs to be documented. The constructor is the
-only exception, even in an abstract class.
+For members inherited as-is, document the original declaration. For an override
+or interface implementation that follows the same contract, reuse the source
+comment through the project's documentation tooling or use an explicit
+[`{@inheritDoc}` reference](https://tsdoc.org/pages/tags/inheritdoc/). Document
+class-specific behavior directly when the inherited contract needs
+clarification.
 
 ## Example
 
+This declaration uses the contract from the
+[interface example](./update-typedoc-interfaces.md).
+
 ```ts
 /**
- * A stream object that can read files.
+ * Reads bytes from a file.
  *
- * Opening a file locks the file for others.  Trying to delete a file
- * that is opened will be prevented from doing so by the
- * operating system while it is open.
+ * Open the stream before reading and close it when finished.
  */
-export class FileStream implements IReadStream {
+export declare class FileStream implements IReadStream {
+  /**
+   * The absolute path to the file this stream reads.
+   */
+  public path: string;
+
   /**
    * Initializes a new instance of this object.
    *
    * @param path -
-   *        A fully qualified path to a file on the file system.
-   *        This should point to a file, not a directory.
+   *        The absolute path to a file.
    */
-  public constructor(public path: PathLike) {}
+  public constructor(path: string);
 
-  public open() {
-    // Blah Blah
-  }
+  /** {@inheritDoc IStream.open} */
+  public open(): Promise<void>;
 
-  public close() {
-    // Blah blah
-  }
+  /** {@inheritDoc IStream.close} */
+  public close(): Promise<void>;
 
-  public read(options?: IStreamOptions): Promise<Uint8Array> {
-    // Blah Blah
-  }
+  /** {@inheritDoc IReadStream.read} */
+  public read(options?: IStreamOptions): Promise<Uint8Array>;
 
   /**
-   * Creates a new file for the given path if it does not already exist.
-   *
-   * If the file already exists, then the last access time on the file
-   * is updated.
+   * Creates the file if it is missing or updates its last access time.
    *
    * @returns
-   *        True if a file was created.  False if the last access time
-   *        was updated.
+   *        A promise that resolves to `true` if the file was created or
+   *        `false` if its last access time was updated.
    */
-  public touch(): Promise<boolean> {
-    // Blah Blah
-  }
+  public touch(): Promise<boolean>;
 
   /**
-   * Gets whether the file exists.
+   * Checks whether the file exists.
    *
    * @returns
-   *        True if the file exists on disk, false otherwise.
+   *        A promise that resolves to `true` if the file exists or
+   *        `false` otherwise.
    */
-  public exists(): Promise<boolean> {
-    // Blah blah
-  }
+  public exists(): Promise<boolean>;
 }
 ```

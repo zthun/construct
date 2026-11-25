@@ -1,8 +1,8 @@
 # Document Variables
 
-Summarize what the exported variable or constant represents. Include units or
-context when they help readers interpret the value. Only both documenting
-variables that are exported from a module.
+Document variables and constants exported from a module. Summarize what each
+value represents, including units or context where they help readers interpret
+it.
 
 ## Examples
 

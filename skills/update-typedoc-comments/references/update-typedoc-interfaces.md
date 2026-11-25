@@ -2,9 +2,8 @@
 
 Summarize each exported interface and document its properties and methods.
 Explain what each member represents or how callers use it. Update comments on
-interfaces that are private to a module when requested. Private, scoped
-interfaces not exported do not require documentation, but feel free to fix any
-spelling or grammar errors.
+interfaces that are private to a module when requested. Fix spelling and grammar
+in existing comments as needed.
 
 ## Example
 
