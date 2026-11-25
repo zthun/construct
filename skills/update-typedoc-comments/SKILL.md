@@ -1,7 +1,9 @@
 ---
 name: update-typedoc-comments
 description: >
-  Create and maintain TSDoc comments in source code.
+  Create and update TSDoc comments for declarations in TypeScript source code.
+  Use when documenting APIs or reviewing existing comments for accuracy,
+  clarity, and formatting.
 license: Unlicense
 ---
 
@@ -9,8 +11,6 @@ license: Unlicense
 
 TSDoc comments describe how to use source declarations and provide documentation
 in editors through features such as IntelliSense.
-
-## Dependencies
 
 ## Comment Format
 
@@ -20,10 +20,9 @@ and `@throws` for errors callers can reasonably handle. For a function that
 returns a promise, describe when the promise rejects. Use `@example` when a
 short example helps explain how to call the API.
 
-For @param, @returns, @throws, and any other tag that has a description, use a
-newline and make sure all of the descriptive texts lines up on the left. Use 8
-spaces from the * comment character. This is important for basic readability
-while actually working with the code.
+For tags with prose descriptions, such as `@param`, `@returns`, and `@throws`,
+start the description on the next line. Indent each description line with eight
+spaces after the `*` so wrapped lines align.
 
 ````ts
 /**
@@ -36,7 +35,7 @@ while actually working with the code.
  *        The equivalent number of bytes.
  *
  * @throws
- *        A RangeError if kibibytes is negative or is not finite.
+ *        A `RangeError` if `kibibytes` is negative or infinite, or if it is `NaN`.
  *
  * @example
  *
