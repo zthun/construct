@@ -1,3 +1,11 @@
+---
+name: update-typedoc-comments
+description: >
+  Create and maintain README.md files for JavaScript and TypeScript
+  repositories, packages, and features, or update TSDoc comments in source code.
+license: Unlicense
+---
+
 # Update TSDoc Comments
 
 TSDoc comments describe how to use source declarations and provide documentation
