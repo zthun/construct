@@ -1,8 +1,7 @@
 ---
 name: update-typedoc-comments
 description: >
-  Create and maintain README.md files for JavaScript and TypeScript
-  repositories, packages, and features, or update TSDoc comments in source code.
+  Create and maintain TSDoc comments in source code.
 license: Unlicense
 ---
 
@@ -10,6 +9,8 @@ license: Unlicense
 
 TSDoc comments describe how to use source declarations and provide documentation
 in editors through features such as IntelliSense.
+
+## Dependencies
 
 ## Comment Format
 
@@ -39,7 +40,8 @@ important for basic readability while actually working with the code.
  * @example
  *
  * ```ts
- * kibibytesToBytes(2); // 2048
+ * const bytes = kibibytesToBytes(2);
+ * console.log(bytes); // 2048
  * ```
  */
 export function kibibytesToBytes(kibibytes: number): number {
@@ -53,12 +55,12 @@ export function kibibytesToBytes(kibibytes: number): number {
 
 ## Declaration Guides
 
-- [Exported variables](./update-typedoc-global-variables.md)
-- [Enums](./update-typedoc-enums.md)
-- [Interfaces](./update-typedoc-interfaces.md)
-- [Type aliases](./update-typedoc-types.md)
-- [Functions](./update-typedoc-functions.md)
-- [Classes](./update-typedoc-classes.md)
+- [Variables](./references/update-typedoc-variables.md)
+- [Enums](./references/update-typedoc-enums.md)
+- [Interfaces](./references/update-typedoc-interfaces.md)
+- [Type aliases](./references/update-typedoc-types.md)
+- [Functions](./references/update-typedoc-functions.md)
+- [Classes](./references/update-typedoc-classes.md)
 
 ## Editing Existing Comments
 
