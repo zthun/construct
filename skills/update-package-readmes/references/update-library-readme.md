@@ -1,41 +1,42 @@
 # Update Library README
 
-Libraries, whether Universal, Browser, or Node, all have the same concept for
-documentation. The goal is to make aware of the feature set and link around to
-documentation that people can navigate to.
+Explain what the library does and when to use it. Link to existing feature
+READMEs for API details. Include installation commands if the library is
+available to consumers through a package registry. Use the package's published
+name, and document any runtime or peer dependency requirements that consumers
+need to meet. Include a short example using the public API.
 
-## Readme Format
+## Example README
 
 ````md
-# Library Name
+# Duration Tools
 
-A short description of the library and what it is for.
+Format elapsed time for status messages and reports.
 
 ## Installation
 
 ```sh
-# NPM
-npm i @zthun/package-name peer
+# npm
+npm install @zthun/duration-tools
 
 # Yarn
-yarn add @zthun/package-name peers
+yarn add @zthun/duration-tools
 
-# PNPM
-# Fill this in for me, I don't know pnpm's syntax
+# pnpm
+pnpm add @zthun/duration-tools
 ```
-
-## Requirements
-
-Optional - Any instructions for requirements that may be needed to properly use
-the library.
 
 ## Features
 
-| Feature Name                       | Description                      |
-| ---------------------------------- | -------------------------------- |
-| (name)(/path/to/feature/readme.md) | Short description of the feature |
+| Feature                                         | Description                                       |
+| ----------------------------------------------- | ------------------------------------------------- |
+| [Duration formatting](./src/duration/README.md) | Format milliseconds as a human-readable duration. |
 
 ## Examples
 
-Optional - Some use cases of the library.
+```ts
+import { formatDuration } from "@zthun/duration-tools";
+
+formatDuration(1_500); // "1.5 seconds"
+```
 ````

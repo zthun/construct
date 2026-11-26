@@ -1,12 +1,12 @@
 ---
 name: update-package-readmes
 description: >
-  Create or update README.md files in package Use when documenting a package. 
-  This is the readme that is shown on npmjs.com when the package is published.
+  Create or update README.md files at the root of JavaScript and TypeScript
+  packages. Use when documenting how to install, use, or run a package.
 license: Unlicense
 ---
 
-# Update Package README
+# Update Package READMEs
 
 ## Purpose
 
@@ -21,18 +21,18 @@ repository or a package registry such as npm.
 
 ## Instructions
 
-1. Identity packages
-1. For each package, identify the package type.
-1. Update the README for each package type.
+1. Identify and classify the packages in scope. For a targeted request, work
+   within the requested packages.
+1. For each package with a known type, follow the matching guide to create or
+   update `README.md` next to `package.json`. Leave packages classified as
+   `Unknown` as they are.
+1. Verify commands, requirements, and examples against the package's metadata,
+   scripts, and source. Preserve accurate content when updating an existing
+   README, and check that links resolve.
 
-| Package Type                                                             |
-| ------------------------------------------------------------------------ |
-| [Universal Library](./references/update-library-readme.md)               |
-| [Browser Library](./references/update-library-readme.md)                 |
-| [Node Library](./references/update-library-readme.md)                    |
-| [CLI](./references/update-cli-readme.md)                                 |
-| [Browser Application](./references/update-browser-application-readme.md) |
-| [Node Service](./references/update-node-service-readme.md)               |
-
-If you cannot determine the package type (Unknown), then just leave the readme
-alone.
+| Package type                                     | Guide                                                                           |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Universal Library, Browser Library, Node Library | [Library README](./references/update-library-readme.md)                         |
+| CLI                                              | [CLI README](./references/update-cli-readme.md)                                 |
+| Browser Application                              | [Browser application README](./references/update-browser-application-readme.md) |
+| Node Service                                     | [Node service README](./references/update-node-service-readme.md)               |
