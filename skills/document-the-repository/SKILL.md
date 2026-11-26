@@ -27,5 +27,5 @@ requested documentation.
 
 - [Update TSDoc comments](../update-typedoc-comments/SKILL.md)
 - [Update each package README](./references/update-package-readme/update-package-readme.md)
-- [Update feature READMEs](./references/update-feature-readme/update-feature-readme.md)
+- [Update feature READMEs](../update-feature-readmes/SKILL.md)
 - [Update the repository README](./references/update-repository-readme/update-repository-readme.md)
