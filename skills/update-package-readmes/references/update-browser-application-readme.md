@@ -1,37 +1,58 @@
 # Update Browser Application README
 
-Browser applications are usually only a portion of some hosted solution.  
-The main thing to know is how to install the service and how to run it.
+Explain what the browser application does and how to run or host it. Document
+the distribution methods the package supports. For a static build, identify the
+directory to serve. For a container image, give the image name, container port,
+and URL to open. Include required configuration and backend services when the
+application depends on them.
 
-## Readme Example
+## Example README
+
+Replace the example package name, image name, paths, and ports with the values
+for the application being documented.
 
 ````md
 # Pokedexii Web
 
-Pokedexxi's website is the frontend for the Pokedexii application.
+Pokedexii Web is the browser frontend for Pokedexii.
 
 ## Running Locally
 
-### Using your own server (NGINX, Apache, Etc)
+### Serve with NGINX or Apache
 
 ```sh
-npm i -g @zthun/browser-application
+npm install --global @zthun/browser-application
+printf '%s\n' "$(npm root --global)/@zthun/browser-application/dist"
 ```
 
-1. Point your server's root to your local node modules
-   @zthun/browser-application/dist folder.
-1. Open your browser and navigate to your configuration
+1. Set your web server's document root to the printed directory.
+2. Open the URL configured on your web server.
 
-## Docker
+### Docker
 
 ```sh
-docker run zthun/browser-application -p 5173:80
-# Open browser on port 5173
+docker run --rm --publish 127.0.0.1:5173:80 zthun/browser-application
 ```
 
-## Docker Compose
+Open [http://localhost:5173](http://localhost:5173).
 
-```docker-compose
-Create a compose example
+### Docker Compose
+
+Save the following as `compose.yaml`.
+
+```yaml
+services:
+  web:
+    image: zthun/browser-application
+    ports:
+      - "127.0.0.1:5173:80"
 ```
+
+From the same directory, start the application.
+
+```sh
+docker compose up
+```
+
+Open [http://localhost:5173](http://localhost:5173).
 ````
