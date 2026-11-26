@@ -1,31 +1,27 @@
 ---
 name: document-the-repository
 description: >
-  Create and maintain README.md files for JavaScript and TypeScript
-  repositories, packages, and features, or update TSDoc comments in source code.
+  Update all documentation in an entire repository.
 license: Unlicense
 ---
 
 # Document the Repository
 
+Update all documentation in a repository.
+
 ## Dependencies
 
-- [identify-package-type](../identify-package-type/SKILL.md)
-- [identify-packages](../identify-packages/SKILL.md)
 - [update-typedoc-comments](../update-typedoc-comments/SKILL.md)
-
-## Purpose
-
-Help readers understand what the repository contains, how to use its packages
-and features, and how its source APIs behave.
+- [update-feature-readmes](../update-feature-readmes/SKILL.md)
+- [update-package-readmes](../update-package-readmes/SKILL.md)
+- [update-repository-readme](../update-repository-readme/SKILL.md)
 
 ## Instructions
 
-For a repository-wide update, identify the packages in the repository and use
-the guides below. For a targeted request, use the guides that apply to the
-requested documentation.
+This skill is an alias to 4 commands. When asked to document the repository,
+perform these 4 skills, in the following order.
 
-- [Update TSDoc comments](../update-typedoc-comments/SKILL.md)
-- [Update each package README](./references/update-package-readme/update-package-readme.md)
-- [Update feature READMEs](../update-feature-readmes/SKILL.md)
-- [Update the repository README](./references/update-repository-readme/update-repository-readme.md)
+1. [Update Typedoc Comments](../update-typedoc-comments/SKILL.md)
+2. [Update Feature Readme Files](../update-feature-readmes/SKILL.md)
+3. [Update Package Readme Files](../update-package-readmes/SKILL.md)
+4. [Update Repository Readme File](../update-repository-readme/SKILL.md)
