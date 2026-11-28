@@ -1,42 +1,49 @@
-# Update Repository README
+---
+name: update-repository-readme
+description: >
+  Create or update the root README.md of a JavaScript or TypeScript repository.
+  Explain why the repository exists, what it provides, and how it is licensed.
+license: Unlicense
+---
 
-Update the readme for the repository.
+# Update Repository README
 
 ## Dependencies
 
-- [update-package-readmes](../update-package-readmes/SKILL.md)
+- [Identify Packages](../identify-packages/SKILL.md) for discovering packages.
+- [Update Package READMEs](../update-package-readmes/SKILL.md) for documenting a
+  standalone package in the root README.
 
 ## Instructions
 
-The readme for the repository should include the following information:
+1. Open the root `README.md` with a short explanation of why the repository
+   exists, what problem it addresses, and what it provides.
+1. For a monorepo, list the packages it provides by name with a short
+   description of what each provides. Link to each package's README when it
+   exists, or to the package directory otherwise. For a standalone package at
+   the repository root, follow the applicable package README guide in the same
+   file.
+1. State the repository's license when it is documented and link to the license
+   file if one exists.
+1. Preserve accurate, relevant content in an existing README and verify that
+   links resolve from the repository root.
 
-1. The why. This is the most important piece of information and if nothing else,
-   at minimum, the repository readme should have this.
-1. A description of a problem and what the codebase is trying to solve. This
-   relates heavily to #1 and may be the conclusion of the issue.
-1. A list of all the packages that the repository provides.
-1. A quick mention of the license, including a link to the license file.
-
-## Non-Monorepos
-
-If the repository is not a monorepo, then follow the guidelines for
-[updating package readmes](../update-package-readmes)
-
-## Readme Example
+## Example Monorepo README
 
 ```md
-# Monorepo Name
+# Duration Tools
 
-Describe why this repository exists and the problem it is trying to solve.
+Keep elapsed-time labels consistent across status messages and reports with a
+shared formatter and a command-line tool.
 
 ## Packages
 
-| Name                                               | Description    |
-| -------------------------------------------------- | -------------- |
-| [@zthun/package-a](./packages/package-a/README.md) | First package  |
-| [@zthun/package-b](./packages/package-b/README.md) | Second package |
+| Package                                                        | Description                                        |
+| -------------------------------------------------------------- | -------------------------------------------------- |
+| [`@zthun/duration-tools`](./packages/duration-tools/README.md) | Formats elapsed time in JavaScript and TypeScript. |
+| [`@zthun/duration-cli`](./packages/duration-cli/README.md)     | Formats elapsed time from the command line.        |
 
 ## License
 
-MIT. See [license](./LICENSE.md) for more information.
+Licensed under the [MIT License](./LICENSE).
 ```
